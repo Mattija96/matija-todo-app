@@ -1,11 +1,13 @@
 export class Weather {
-    private city: string;
-    private country: string;
-    private weather: any;
+    public city: string;
+    public country: string;
+    public weather: any;
+    public weatherState: any;
 
-    constructor(city: string, country: string, weather: any) {
+    constructor(city: string, country: string, weather: any, weatherState: any) {
       this.city = city;
       this.country = country;
       this.weather = weather;
+      this.weatherState = weatherState;
     }
 }

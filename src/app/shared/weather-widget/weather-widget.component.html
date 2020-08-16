@@ -1,11 +1,15 @@
 <mat-card class="weather-tooltip">
   <mat-spinner *ngIf="isLoading" color="warn"></mat-spinner>
   <div *ngIf="!isLoading">
-    <mat-card-title>{{location.city}}</mat-card-title>
+    <mat-card-title>{{location.city}}, {{location.country}}</mat-card-title>
     <mat-card-subtitle>20 Feb. 2020</mat-card-subtitle>
     <mat-card-content>
       <div class="info-weather-container">
-        <mat-icon class="weather-icon">wb_sunny</mat-icon>
+        <div [ngSwitch]="location.weatherState.main">
+          <mat-icon class="weather-icon" *ngSwitchCase="'Rain'">grain</mat-icon>
+          <mat-icon class="weather-icon" *ngSwitchCase="'Clouds'">clouds</mat-icon>
+          <mat-icon class="weather-icon" *ngSwitchCase="'Clear'">wb_sunny</mat-icon>
+        </div>
         <span style="float:right;" class="info-weather-temperature">{{location.weather.temp}} C°</span>
       </div>
       <br>

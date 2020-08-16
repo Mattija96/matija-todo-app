@@ -19,9 +19,10 @@ export class WeatherWidgetComponent implements OnInit {
 
   loadWeather(): void {
     this.isLoading = true;
-    this.wsService.getCurrentLocation().subscribe(
+    this.wsService.getCurrentLocation('Podgorica', 'metric').subscribe(
       response => {
-        this.location = new Weather(response.name, response.sys.country, response.main);
+        this.location = new Weather(response.name, response.sys.country, response.main, response.weather[0]);
+        console.log(this.location);
         this.isLoading = false;
       }
     );
