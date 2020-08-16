@@ -1,14 +1,15 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
       <div>
-        <button mat-raised-button class="mat-menu-button">Overview</button>
-        <button mat-raised-button class="mat-menu-button">My plans</button>
-        <button mat-raised-button class="mat-menu-button">Customize activities</button>
+        <button mat-raised-button class="mat-menu-button" [routerLink]="'overview'">Overview</button>
+        <button mat-raised-button class="mat-menu-button" [routerLink]="'plans'">My plans</button>
+        <button mat-raised-button class="mat-menu-button" [routerLink]="'activities'">Customize activities</button>
       </div>
       <span style="flex: 1 1 auto;"></span>
+      <app-weather-widget></app-weather-widget>
     </mat-toolbar-row>
 </mat-toolbar>
 <div>
   <router-outlet></router-outlet>
 </div>
-c
+

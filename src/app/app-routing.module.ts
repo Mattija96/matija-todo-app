@@ -1,8 +1,16 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {OverviewComponent} from './overview/overview.component';
+import {PlansComponent} from './plans/plans.component';
+import {ActivitiesComponent} from './activities/activities.component';
+import {WeatherComponent} from './weather/weather.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/overview', pathMatch: 'full' },
+  { path: 'overview', component: OverviewComponent },
+  { path: 'plans', component: PlansComponent },
+  { path: 'activities', component: ActivitiesComponent },
+  { path: 'weather', component: WeatherComponent }
 ];
 
 // @ts-ignore

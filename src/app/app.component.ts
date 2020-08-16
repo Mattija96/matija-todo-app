@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {WeatherService} from './shared/services/weather.service';
+import {Weather} from './models/weather.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'matija-to-do-app';
+  constructor(private wsService: WeatherService) {}
 }

@@ -1,0 +1,36 @@
+.weather-tooltip {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background:#ff5722;
+  color:white;
+  min-width: 250px;
+
+  mat-card-title {
+    margin-bottom: 0;
+  }
+  mat-card-subtitle {
+    color:white;
+  }
+
+  .info-weather-container {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    .weather-icon {
+      float:left;
+      transform: scale(3);
+      padding-left: 10px;
+    }
+
+    .info-weather-temperature {
+      float: right;
+      font-size: 36px;
+    }
+  }
+
+  .info-weather-button {
+    width:100%;
+    border-color:white;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+<mat-card class="weather-tooltip">
+  <mat-spinner *ngIf="isLoading" color="warn"></mat-spinner>
+  <div *ngIf="!isLoading">
+    <mat-card-title>{{location.city}}</mat-card-title>
+    <mat-card-subtitle>20 Feb. 2020</mat-card-subtitle>
+    <mat-card-content>
+      <div class="info-weather-container">
+        <mat-icon class="weather-icon">wb_sunny</mat-icon>
+        <span style="float:right;" class="info-weather-temperature">{{location.weather.temp}} C°</span>
+      </div>
+      <br>
+      <button mat-stroked-button class="info-weather-button" [routerLink]="'weather'">More info</button>
+    </mat-card-content>
+  </div>
+</mat-card>
