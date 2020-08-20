@@ -16,6 +16,13 @@ import {WeatherService} from './shared/services/weather.service';
 import { WeatherComponent } from './weather/weather.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {ActivityService} from './shared/services/activity.service';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { NewActivityComponent } from './activities/new-activity/new-activity.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {ColorPickerModule} from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     PlansComponent,
     ActivitiesComponent,
     WeatherWidgetComponent,
-    WeatherComponent
+    WeatherComponent,
+    NewActivityComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +43,14 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ColorPickerModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, ActivityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-card-title>Add New Activity</mat-card-title>
+  <form class="activity-form">
+    <mat-form-field style="width: 100%;">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Enter name">
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Insert description"></textarea>
+    </mat-form-field>
+    <mat-form-field style="width: 100%;">
+      <mat-label>Selected font color</mat-label>
+      <input matInput [value]="fontColor" disabled required>
+    </mat-form-field>
+    <input [(colorPicker)]="fontColor" [style.background]="fontColor"/>
+    <br>
+    <mat-form-field style="width: 100%;">
+      <mat-label>Selected background color</mat-label>
+      <input matInput disabled [value]="backgroundColor" required>
+    </mat-form-field>
+    <input [(colorPicker)]="backgroundColor" [style.background]="backgroundColor"/>
+    <br>
+    <div style="text-align: right;"><button style="width: 10%;" mat-flat-button color="warn">Add</button></div>
+  </form>
+</mat-card>
