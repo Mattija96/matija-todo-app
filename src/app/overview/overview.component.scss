@@ -1,0 +1,30 @@
+.overview {
+  .button-items {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    .button-item {
+      flex: 0 50%;
+      margin: 10px;
+      text-align: center;
+      color: #575757;
+      .material-icons {
+        font-size: 125px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #575757;
+        &:hover {
+          color: #969696;
+          cursor: pointer;
+        }
+      }
+
+      p {
+        font-size: 60px;
+        font-weight: lighter;
+      }
+    }
+  }
+}
