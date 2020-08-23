@@ -23,6 +23,7 @@ import { NewActivityComponent } from './activities/new-activity/new-activity.com
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {ColorPickerModule} from 'ngx-color-picker';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {ColorPickerModule} from 'ngx-color-picker';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    ColorPickerModule
+    ColorPickerModule,
+    FormsModule
   ],
   providers: [WeatherService, ActivityService],
   bootstrap: [AppComponent]
