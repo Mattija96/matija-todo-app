@@ -1,0 +1,27 @@
+.plans-container {
+  position: relative;
+
+  .plans-list {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    top: 64px;
+    left: 0;
+    background-color: #dfdfdf;
+    overflow-x: hidden;
+    padding-top: 20px;
+
+    mat-form-field {
+      padding-left: 20px;
+    }
+
+    .list-content {
+      padding: 20px;
+    }
+  }
+
+  .plan-description {
+    flex: 0 70%;
+  }
+}

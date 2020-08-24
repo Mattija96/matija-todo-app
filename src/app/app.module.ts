@@ -24,6 +24,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {ColorPickerModule} from 'ngx-color-picker';
 import {FormsModule} from '@angular/forms';
+import { TaskItemComponent } from './plans/task-item/task-item.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import {FormsModule} from '@angular/forms';
     ActivitiesComponent,
     WeatherWidgetComponent,
     WeatherComponent,
-    NewActivityComponent
+    NewActivityComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,10 @@ import {FormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     ColorPickerModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [WeatherService, ActivityService],
   bootstrap: [AppComponent]

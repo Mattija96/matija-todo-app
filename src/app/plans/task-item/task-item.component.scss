@@ -1,0 +1,16 @@
+.task-container {
+    background:red;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    p {
+      padding-left: 24px;
+      font-weight: lighter;
+    }
+
+    mat-checkbox {
+      font-weight: bold;
+    }
+}
