@@ -23,11 +23,12 @@ import { NewActivityComponent } from './activities/new-activity/new-activity.com
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {ColorPickerModule} from 'ngx-color-picker';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TaskItemComponent } from './plans/task-item/task-item.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import {TaskService} from './shared/services/task.service';
 
 @NgModule({
   declarations: [
@@ -58,9 +59,10 @@ import {MatNativeDateModule} from '@angular/material/core';
     FormsModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
-  providers: [WeatherService, ActivityService],
+  providers: [WeatherService, ActivityService, TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

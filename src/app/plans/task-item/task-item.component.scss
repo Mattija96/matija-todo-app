@@ -1,6 +1,4 @@
 .task-container {
-    background:red;
-    color: white;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -18,4 +16,8 @@
     mat-checkbox {
       font-weight: bold;
     }
+}
+
+.cross-task {
+  text-decoration: line-through;
 }

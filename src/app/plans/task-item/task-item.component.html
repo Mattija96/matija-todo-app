@@ -1,5 +1,5 @@
-<mat-card class="task-container">
-  <mat-checkbox class="example-margin">Check me!</mat-checkbox>
-  <p>This is a small description space. This is testing space area</p>
-  <p class="task-type">Type: Film</p>
+<mat-card class="task-container" [ngStyle]="{'background': currentItem.activityType.backgroundColor, 'color': currentItem.activityType.fontColor}">
+  <mat-checkbox class="example-margin" [(ngModel)]="currentItem.isDone"><span [ngClass]="{'cross-task': currentItem.isDone}">{{currentItem.name}}</span></mat-checkbox>
+  <p [ngClass]="{'cross-task': currentItem.isDone}">{{currentItem.description}}</p>
+  <p class="task-type">Type: {{currentItem.activityType.name}}</p>
 </mat-card>
