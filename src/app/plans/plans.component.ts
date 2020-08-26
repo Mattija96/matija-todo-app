@@ -3,6 +3,7 @@ import {TaskService} from '../shared/services/task.service';
 import {Task} from '../models/task.model';
 import {FormControl} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-plans',
@@ -16,6 +17,8 @@ export class PlansComponent implements OnInit {
   datedItems: Task[];
   selectedTask: Task;
   completion = 0;
+  taskSubscription: Subscription;
+  isEditing = false;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
 
@@ -37,10 +40,15 @@ export class PlansComponent implements OnInit {
     this.planItems = this.taskService.getAllTasks();
     this.filterTasks(this.currentDate.value);
     this.calculateCompletion();
+    this.taskService.taskEmitter.subscribe(response => {
+      this.planItems = response;
+      this.filterTasks(this.currentDate.value);
+      this.calculateCompletion();
+    });
   }
 
   addProduct(): void {
-    console.log(this.currentDate);
+    this.isEditing = !this.isEditing;
   }
 
   changeDate(): void {
@@ -64,7 +72,7 @@ export class PlansComponent implements OnInit {
     for (let i = 0; i < this.planItems.length; i++) {
       // tslint:disable-next-line:max-line-length radix
        const setDate = (parseInt(String(this.planItems[i].date.getMonth())) + 1) + '-' + this.planItems[i].date.getDate() + '-' + this.planItems[i].date.getFullYear();
-       if(compareDate === setDate) {
+       if (compareDate === setDate) {
          this.datedItems.push(this.planItems[i]);
        }
     }
@@ -72,7 +80,7 @@ export class PlansComponent implements OnInit {
 
   calculateCompletion(): void {
     this.completion = 0;
-    if(this.datedItems && this.datedItems.length > 0) {
+    if (this.datedItems && this.datedItems.length > 0) {
       let counter = 0;
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < this.datedItems.length; i++) {
@@ -90,6 +98,10 @@ export class PlansComponent implements OnInit {
 
   getSelected(itemEvent): void {
     this.selectedTask = itemEvent;
+  }
+
+  removeForm(): void {
+    this.isEditing = false;
   }
 
 }

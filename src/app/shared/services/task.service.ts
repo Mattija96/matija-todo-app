@@ -1,9 +1,11 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Task} from '../../models/task.model';
 import {Activity} from '../../models/activity.model';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class TaskService {
+  taskEmitter: Subject<Task[]> = new Subject<Task[]>();
   allTasks: Task[] = [
     new Task('Finish first task', 'Duis quam odio, aliquam sed accumsan et, ornare placerat velit. Nulla facilisi. Vivamus ultricies imperdiet fringilla. Pellentesque cursus vitae sapien non tempor. Sed facilisis molestie sapien, nec facilisis ante lacinia at. Integer consequat dui orci, vitae accumsan dolor maximus quis. Quisque placerat felis ac sapien mollis vehicula. Aliquam non dictum leo, vitae sodales orci. Aliquam sit amet augue et mi facilisis egestas. Nam et ante eget justo ultricies faucibus.', false, new Date(),
       new Activity('Main Activity', 'This is a main activity category', '#ffffff', '#ff5722')),
@@ -13,5 +15,10 @@ export class TaskService {
 
   getAllTasks(): Task[] {
     return this.allTasks.slice();
+  }
+
+  addTask(task: Task): void {
+    this.allTasks.push(task);
+    this.taskEmitter.next(this.allTasks.slice());
   }
 }

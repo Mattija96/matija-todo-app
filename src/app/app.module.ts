@@ -31,6 +31,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {TaskService} from './shared/services/task.service';
 import {TruncateModule} from 'ng2-truncate';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AddPlanComponent } from './plans/add-plan/add-plan.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     WeatherWidgetComponent,
     WeatherComponent,
     NewActivityComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    AddPlanComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatNativeDateModule,
     ReactiveFormsModule,
     TruncateModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSelectModule
   ],
   providers: [WeatherService, ActivityService, TaskService],
   bootstrap: [AppComponent]

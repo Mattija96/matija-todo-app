@@ -1,0 +1,20 @@
+<form name="activityForm" class="activity-form" (ngSubmit)="addTask(addForm)" #addForm="ngForm">
+  <mat-form-field style="width: 100%;">
+    <mat-label>Name</mat-label>
+    <input matInput ngModel name="name" id="name" required>
+  </mat-form-field>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Description</mat-label>
+    <textarea matInput ngModel name="description" id="description" rows="4" required></textarea>
+  </mat-form-field>
+  <mat-form-field style="width: 100%">
+    <mat-label>Favorite food</mat-label>
+    <mat-select name="activityType" [(ngModel)]="activityType" required>
+      <mat-option *ngFor="let type of types" [value]="type">
+        {{type.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <div style="text-align: right;"><button type="submit" style="width: 10%;" mat-flat-button color="warn" [disabled]="!addForm.valid">Add</button></div>
+</form>
