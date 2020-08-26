@@ -8,10 +8,24 @@
       </mat-form-field>
       <div class="list-content">
         <button mat-flat-button style="background: deepskyblue;color:white;width: 100%;" (click)="addProduct();">+ Add Task</button>
-        <app-task-item *ngFor="let plan of datedItems" [currentItem]="plan"></app-task-item>
+        <div style="padding-top: 10px;">
+          <p style="font-weight: bold;margin-bottom: 5px;">Completion: {{completion}}</p>
+          <mat-progress-bar mode="determinate" value="{{completion}}"></mat-progress-bar>
+        </div>
+        <app-task-item *ngFor="let plan of datedItems" [currentItem]="plan" (itemChecked)="calculateCompletion();" (itemEmitter)="getSelected($event)"></app-task-item>
+        <p *ngIf="!datedItems || datedItems.length === 0;" style="text-align: center;padding-top: 50px;font-weight: lighter;font-size: 24px;">No tasks for this day</p>
       </div>
     </div>
     <div class="plan-description">
-
+      <mat-card *ngIf="selectedTask">
+        <h1>{{selectedTask.name}} <span style="float:right">Status:
+          <span *ngIf="selectedTask.isDone" style="color: limegreen;">Complete</span>
+          <span *ngIf="!selectedTask.isDone" style="color: firebrick;">Incomplete</span>
+        </span></h1>
+        <p>{{selectedTask.description}}</p>
+      </mat-card>
+      <mat-card *ngIf="!selectedTask">
+          <h2 style="text-align: center;">No Task Selected</h2>
+      </mat-card>
     </div>
 </div>

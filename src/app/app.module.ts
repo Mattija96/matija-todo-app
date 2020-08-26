@@ -29,6 +29,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {TaskService} from './shared/services/task.service';
+import {TruncateModule} from 'ng2-truncate';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import {TaskService} from './shared/services/task.service';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TruncateModule,
+    MatProgressBarModule
   ],
   providers: [WeatherService, ActivityService, TaskService],
   bootstrap: [AppComponent]

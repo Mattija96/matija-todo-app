@@ -14,6 +14,8 @@ export class PlansComponent implements OnInit {
   currentDate: FormControl = new FormControl(new Date());
   planItems: Task[];
   datedItems: Task[];
+  selectedTask: Task;
+  completion = 0;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) { }
 
@@ -34,6 +36,7 @@ export class PlansComponent implements OnInit {
     }
     this.planItems = this.taskService.getAllTasks();
     this.filterTasks(this.currentDate.value);
+    this.calculateCompletion();
   }
 
   addProduct(): void {
@@ -43,6 +46,8 @@ export class PlansComponent implements OnInit {
   changeDate(): void {
     const date = this.currentDate.value;
     this.filterTasks(date);
+    this.calculateCompletion();
+    this.selectedTask = null;
     this.router.navigate([], {
       relativeTo: this.route,
       // tslint:disable-next-line:radix
@@ -63,6 +68,28 @@ export class PlansComponent implements OnInit {
          this.datedItems.push(this.planItems[i]);
        }
     }
+  }
+
+  calculateCompletion(): void {
+    this.completion = 0;
+    if(this.datedItems && this.datedItems.length > 0) {
+      let counter = 0;
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.datedItems.length; i++) {
+        if (this.datedItems[i].isDone) {
+          counter++;
+        }
+      }
+      this.completion = counter / this.datedItems.length * 100;
+    }
+  }
+
+  viewTask(task): void {
+    this.selectedTask = task;
+  }
+
+  getSelected(itemEvent): void {
+    this.selectedTask = itemEvent;
   }
 
 }

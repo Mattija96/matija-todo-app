@@ -1,5 +1,6 @@
 <mat-card class="task-container" [ngStyle]="{'background': currentItem.activityType.backgroundColor, 'color': currentItem.activityType.fontColor}">
-  <mat-checkbox class="example-margin" [(ngModel)]="currentItem.isDone"><span [ngClass]="{'cross-task': currentItem.isDone}">{{currentItem.name}}</span></mat-checkbox>
-  <p [ngClass]="{'cross-task': currentItem.isDone}">{{currentItem.description}}</p>
+  <mat-checkbox class="example-margin" (change)="itemStatusChanged();" [(ngModel)]="currentItem.isDone"><span [ngClass]="{'cross-task': currentItem.isDone}">{{currentItem.name}}</span></mat-checkbox>
+  <p [ngClass]="{'cross-task': currentItem.isDone}">{{currentItem.description |  truncate: 100}}</p>
   <p class="task-type">Type: {{currentItem.activityType.name}}</p>
+  <button mat-stroked-button style="width: 100%;" (click)="selectItem();">View Details</button>
 </mat-card>
