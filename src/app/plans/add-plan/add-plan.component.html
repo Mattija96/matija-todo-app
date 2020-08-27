@@ -8,7 +8,7 @@
     <textarea matInput ngModel name="description" id="description" rows="4" required></textarea>
   </mat-form-field>
   <mat-form-field style="width: 100%">
-    <mat-label>Favorite food</mat-label>
+    <mat-label>Task type</mat-label>
     <mat-select name="activityType" [(ngModel)]="activityType" required>
       <mat-option *ngFor="let type of types" [value]="type">
         {{type.name}}
