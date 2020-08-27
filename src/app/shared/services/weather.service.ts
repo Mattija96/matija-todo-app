@@ -13,6 +13,6 @@ export class WeatherService {
       appid: '41ce5d5fdec969a29d72352103ee7db0'
     };
     // tslint:disable-next-line:max-line-length
-    return this.http.get('http://api.openweathermap.org/data/2.5/weather', {params: parameters});
+    return this.http.get('https://api.openweathermap.org/data/2.5/weather', {params: parameters});
   }
 }
